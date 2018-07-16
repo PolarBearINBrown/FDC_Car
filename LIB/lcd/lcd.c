@@ -1516,32 +1516,19 @@ void LCD_ShowString(u16 x,u16 y,u16 width,u16 height,u8 size,u8 *p)
     }  
 }
 
+void ShowString(int Line,int Column,u8 *p)
+{
+	LCD_ShowString(Column*8+10,Line*20,200,16,16,p);	
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void ShowNum(int Line,int Column,u32 num)
+{
+	int tmp=num;
+	int ans=0;
+	while(tmp)
+	{
+		ans++;
+		tmp/=10;
+	}
+	LCD_ShowNum(Column*8+10,Line*20,num,ans,16); 
+}

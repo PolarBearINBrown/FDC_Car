@@ -82,13 +82,13 @@ int FDC_GetCH(u8 index)
 	switch(index)
 	{
 		case 0x00:
-			return ReadFDC2X14(DATA_CH0,DATA_LSB_CH0)%1000000/100;
+			return ReadFDC2X14(DATA_CH0,DATA_LSB_CH0)/100;
 		case 0x01:
-			return ReadFDC2X14(DATA_CH1,DATA_LSB_CH1)%1000000/100;
+			return ReadFDC2X14(DATA_CH1,DATA_LSB_CH1)/100;
 		case 0x02:
-			return ReadFDC2X14(DATA_CH2,DATA_LSB_CH2)%1000000/100;
+			return ReadFDC2X14(DATA_CH2,DATA_LSB_CH2)/100;
 		case 0x03:
-			return ReadFDC2X14(DATA_CH3,DATA_LSB_CH3)%1000000/100;
+			return ReadFDC2X14(DATA_CH3,DATA_LSB_CH3)/100;
 	}
 	return -1;
 }

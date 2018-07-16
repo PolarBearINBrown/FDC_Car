@@ -18,7 +18,7 @@
 .\objects\lcd.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\lcd.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\lcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\lcd.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_fsmc.h
+.\objects\lcd.o: ..\LIB\lcd\stm32f10x_fsmc.h
 .\objects\lcd.o: ..\LIB\lcd\font.h
 .\objects\lcd.o: ..\SYSTEM\usart\usart.h
 .\objects\lcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

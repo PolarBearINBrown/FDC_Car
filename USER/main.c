@@ -31,14 +31,15 @@ int main()
 //		printf("\r\n");
 //		delay_ms(500);
 //	}
-	while(1) 
-	{	   	
-		POINT_COLOR=RED;	  
-		LCD_ShowString(30,50,200,16,16,"WarShip STM32 ^_^");	
-		LCD_ShowString(30,70,200,16,16,"TFTLCD TEST");	
-		LCD_ShowString(30,90,200,16,16,"I make it!");		  //œ‘ æLCD	      					 
+	while(1)
+	{
+		POINT_COLOR=BLACK;
+		ShowString(1,1,"CH0=");
+		ShowNum(1,5,FDC_GetCH(0));
+		ShowString(2,1,"CH1=");
+		ShowNum(2,5,FDC_GetCH(1));
 
-		LED1=!LED1;			 
-		delay_ms(1000);	
+		LED1=!LED1;
+		delay_ms(100);
 	}
 }
