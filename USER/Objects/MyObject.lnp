@@ -9,6 +9,8 @@
 ".\objects\pid.o"
 ".\objects\motor.o"
 ".\objects\break.o"
+".\objects\lcd.o"
+".\objects\stm32f10x_fsmc.o"
 ".\objects\pretreat.o"
 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Lib\ARM\arm_cortexM3l_math.lib"
 ".\objects\misc.o"

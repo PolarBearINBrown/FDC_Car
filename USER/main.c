@@ -5,6 +5,7 @@
 #include "pretreat.h"
 #include "pid.h"
 #include "motor.h"
+#include "lcd.h"
 
 void System_Initial(void)
 {
@@ -15,16 +16,29 @@ void System_Initial(void)
 	LED_Initial();
 	PID_Initial();
 	Motor_Initial();
+	LCD_Init();
 }
 
 int main()
 {
 	System_Initial();
-	while(1)
-	{
-		printf("CH0=%d\r\n",FDC_GetCH(0));
-		printf("CH1=%d\r\n",FDC_GetCH(1));
-		printf("\r\n");
-		delay_ms(500);
+//	while(1)
+//	{
+//		printf("CH0=%d\r\n",FDC_GetCH(0));
+//		printf("CH1=%d\r\n",FDC_GetCH(1));
+//		printf("CH2=%d\r\n",FDC_GetCH(2));
+//		printf("CH3=%d\r\n",FDC_GetCH(3));
+//		printf("\r\n");
+//		delay_ms(500);
+//	}
+	while(1) 
+	{	   	
+		POINT_COLOR=RED;	  
+		LCD_ShowString(30,50,200,16,16,"WarShip STM32 ^_^");	
+		LCD_ShowString(30,70,200,16,16,"TFTLCD TEST");	
+		LCD_ShowString(30,90,200,16,16,"I make it!");		  //œ‘ æLCD	      					 
+
+		LED1=!LED1;			 
+		delay_ms(1000);	
 	}
 }

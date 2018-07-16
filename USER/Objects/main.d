@@ -26,3 +26,6 @@
 .\objects\main.o: ..\BSP\pretreat\pretreat.h
 .\objects\main.o: ..\LIB\pid\pid.h
 .\objects\main.o: ..\LIB\motor\motor.h
+.\objects\main.o: ..\LIB\lcd\lcd.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\main.o: ..\LIB\lcd\stm32f10x_fsmc.h

@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>MyObject</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\LIB\break;..\LIB\fdc2x14;..\LIB\iic;..\LIB\led;..\LIB\pid;..\LIB\motor;..\BSP\pretreat</IncludePath>
+              <IncludePath>..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\LIB\break;..\LIB\fdc2x14;..\LIB\iic;..\LIB\led;..\LIB\pid;..\LIB\motor;..\LIB\lcd;..\BSP\pretreat</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -489,6 +489,26 @@
               <FileName>break.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\LIB\break\break.h</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\lcd\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\LIB\lcd\lcd.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_fsmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\lcd\stm32f10x_fsmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_fsmc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\LIB\lcd\stm32f10x_fsmc.h</FilePath>
             </File>
           </Files>
         </Group>
