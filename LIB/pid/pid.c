@@ -9,10 +9,10 @@ void PID_Initial(void)
 	LastError=0;
 	PrevError=0;
 	SumError=0;
-	Proportion=17;
-	Integral=0.2;
-	Derivative=25000;
-	Limit=25000.0;
+	Proportion=170;
+	Integral=0.4;
+	Derivative=20;
+	Limit=250.0;
 }
 
 int Inc_PID_Cal(float Target,float Now)

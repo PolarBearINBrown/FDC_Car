@@ -4,8 +4,9 @@
 #include "FDC2X14.h"
 #include "pretreat.h"
 #include "pid.h"
-#include "motor.h"
 #include "lcd.h"
+#include "judge.h"
+#include "move.h"
 
 void System_Initial(void)
 {
@@ -17,29 +18,27 @@ void System_Initial(void)
 	PID_Initial();
 	Motor_Initial();
 	LCD_Init();
+	Judge_Initial();
 }
 
 int main()
 {
 	System_Initial();
-//	while(1)
-//	{
-//		printf("CH0=%d\r\n",FDC_GetCH(0));
-//		printf("CH1=%d\r\n",FDC_GetCH(1));
-//		printf("CH2=%d\r\n",FDC_GetCH(2));
-//		printf("CH3=%d\r\n",FDC_GetCH(3));
-//		printf("\r\n");
-//		delay_ms(500);
-//	}
+	ShowString(1,1,"Left=");
+	ShowString(2,1,"Right=");
+	ShowString(3,1,"Div=");
+	ShowString(4,1,"PID=");
 	while(1)
 	{
-		POINT_COLOR=BLACK;
-		ShowString(1,1,"CH0=");
-		ShowNum(1,5,FDC_GetCH(0));
-		ShowString(2,1,"CH1=");
-		ShowNum(2,5,FDC_GetCH(1));
-
-		LED1=!LED1;
-		delay_ms(100);
+		int P=Loc_PID_Cal(0,Judge_Dir()/2000)*0.4;
+		ShowNum(4,7,P);
+		if(P<0)
+		{
+			Move_Left(-P);
+		}
+		else
+		{
+			Move_Right(P);
+		}
 	}
 }

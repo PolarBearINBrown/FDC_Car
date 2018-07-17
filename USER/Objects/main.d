@@ -25,7 +25,9 @@
 .\objects\main.o: ..\LIB\fdc2x14\FDC2X14.h
 .\objects\main.o: ..\BSP\pretreat\pretreat.h
 .\objects\main.o: ..\LIB\pid\pid.h
-.\objects\main.o: ..\LIB\motor\motor.h
 .\objects\main.o: ..\LIB\lcd\lcd.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\LIB\lcd\stm32f10x_fsmc.h
+.\objects\main.o: ..\BSP\judge\judge.h
+.\objects\main.o: ..\BSP\move\move.h
+.\objects\main.o: ..\LIB\motor\motor.h

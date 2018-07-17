@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>MyObject</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\LIB\break;..\LIB\fdc2x14;..\LIB\iic;..\LIB\led;..\LIB\pid;..\LIB\motor;..\LIB\lcd;..\BSP\pretreat</IncludePath>
+              <IncludePath>..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\LIB\break;..\LIB\fdc2x14;..\LIB\iic;..\LIB\led;..\LIB\pid;..\LIB\motor;..\LIB\lcd;..\BSP\pretreat;..\BSP\move;..\BSP\judge</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -524,6 +524,26 @@
               <FileName>pretreat.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\BSP\pretreat\pretreat.h</FilePath>
+            </File>
+            <File>
+              <FileName>move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\move\move.c</FilePath>
+            </File>
+            <File>
+              <FileName>move.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\move\move.h</FilePath>
+            </File>
+            <File>
+              <FileName>judge.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\judge\judge.c</FilePath>
+            </File>
+            <File>
+              <FileName>judge.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\judge\judge.h</FilePath>
             </File>
           </Files>
         </Group>

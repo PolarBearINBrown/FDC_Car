@@ -1521,7 +1521,7 @@ void ShowString(int Line,int Column,u8 *p)
 	LCD_ShowString(Column*8+10,Line*20,200,16,16,p);	
 }
 
-void ShowNum(int Line,int Column,u32 num)
+void ShowNum(int Line,int Column,int num)
 {
 	int tmp=num;
 	int ans=0;
@@ -1530,5 +1530,14 @@ void ShowNum(int Line,int Column,u32 num)
 		ans++;
 		tmp/=10;
 	}
-	LCD_ShowNum(Column*8+10,Line*20,num,ans,16); 
+	if(num<0)
+	{
+		ShowString(Line,Column,"-         ");
+		LCD_ShowNum(Column*8+18,Line*20,-num,ans,16);
+	}
+	else
+	{
+		ShowString(Line,Column,"         ");
+		LCD_ShowNum(Column*8+10,Line*20,num,ans,16); 
+	}
 }

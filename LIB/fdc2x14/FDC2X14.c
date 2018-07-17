@@ -43,40 +43,55 @@
 #define MANUFACTURER_ID 0x7E
 #define DEVICE_ID 0x7F
 
-///FDC2X14 IO初始化
-void FDC2X14_Init(void)
+void WriteRegfdc2214(unsigned char add,unsigned int value)
 {
-	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );
-	
-	SetFDC2X14(RCOUNT_CH0,0x30,0xCB);
-	SetFDC2X14(RCOUNT_CH1,0x30,0xCB);
-	SetFDC2X14(RCOUNT_CH2,0x30,0xCB);
-	SetFDC2X14(RCOUNT_CH3,0x30,0xCB);
-
-	SetFDC2X14(CLOCK_DIVIDERS_C_CH0,0x20,0x01);
-	SetFDC2X14(CLOCK_DIVIDERS_C_CH1,0x20,0x01);
-	SetFDC2X14(CLOCK_DIVIDERS_C_CH2,0x20,0x01);
-	SetFDC2X14(CLOCK_DIVIDERS_C_CH3,0x20,0x01);
-
-	SetFDC2X14(SETTLECOUNT_CH0,0x00,0x19);
-	SetFDC2X14(SETTLECOUNT_CH1,0x00,0x19);
-	SetFDC2X14(SETTLECOUNT_CH2,0x00,0x19);
-	SetFDC2X14(SETTLECOUNT_CH3,0x00,0x19);
-
-	SetFDC2X14(ERROR_CONFIG,0x00,0x00);
-	
-	SetFDC2X14(MUX_CONFIG,0xc2,0x0c);
-	
-	SetFDC2X14(DRIVE_CURRENT_CH0,0x50,0x00);
-	SetFDC2X14(DRIVE_CURRENT_CH1,0x50,0x00);
-	SetFDC2X14(DRIVE_CURRENT_CH2,0x50,0x00);
-	SetFDC2X14(DRIVE_CURRENT_CH3,0x50,0x00);
-
-	SetFDC2X14(CONFIG,0x16,0x01);
+	IIC_Start();
+	IIC_Send_Byte(FDC2X14_W);	 //ADDR=0时，地址0X2A<<1+0=0X54
+	IIC_Wait_Ack();          	//等应答
+	IIC_Send_Byte(add);      	//写地址
+	IIC_Wait_Ack();          	//等应答
+	IIC_Send_Byte(value>>8); 	//写高8位
+	IIC_Wait_Ack();
+	IIC_Send_Byte(value&0xff);	//写低8位
+	IIC_Wait_Ack();
+	IIC_Stop();               	//产生一个停止条件
+	delay_ms(10);
 }
 
-//数据读取
-//index通道索引
+void FDC2X14_Init(void)//双通道
+{
+	WriteRegfdc2214(0x08,0x04D6);//转换时间
+	WriteRegfdc2214(0x09,0x04D6);
+	WriteRegfdc2214(0x0A,0x04D6);//转换时间
+	WriteRegfdc2214(0x0B,0x04D6);
+
+	WriteRegfdc2214(0x0C,0x0F00); //调0值 	CH0
+	WriteRegfdc2214(0x0D,0x0F00); //调0值   CH1
+	WriteRegfdc2214(0x0E,0x0F00); //调0值   CH2
+	WriteRegfdc2214(0x0F,0x0F00); //调0值   CH3
+
+	WriteRegfdc2214(0x10,0x000A);//作用时间 CH1
+	WriteRegfdc2214(0x11,0x000A);//CH2
+	WriteRegfdc2214(0x12,0x000A);//CH3
+	WriteRegfdc2214(0x13,0x000A);//CH4
+
+	WriteRegfdc2214(0x14,0x2002);//分频
+	WriteRegfdc2214(0x15,0x2002);
+	WriteRegfdc2214(0x16,0x2002);//分频
+	WriteRegfdc2214(0x17,0x2002);
+
+	WriteRegfdc2214(0x19,0x0000);
+	WriteRegfdc2214(0x1B,0xC20D);//配置多通道   2通道--0x820D
+
+	WriteRegfdc2214(0x1E,0x9000); //驱动电流 CH0
+	WriteRegfdc2214(0x1F,0x9000); //CH1
+	WriteRegfdc2214(0x20,0x9000); //CH2
+	WriteRegfdc2214(0x21,0x9000); //CH3
+
+	WriteRegfdc2214(0x1A,0x1C81);//配置寄存器
+
+}
+
 int FDC_GetCH(u8 index)
 {
 	switch(index)

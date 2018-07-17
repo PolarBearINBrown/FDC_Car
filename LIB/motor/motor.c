@@ -88,15 +88,15 @@ void Set_M1_Speed(int Speed)
 	}
 }
 
-void Set_M2_speed(int speed)
+void Set_Right_Speed(int Speed,int Limit)
 {
-	if(speed>0)
+	if(Speed>0)
 	{
 		M2_Dir1=0;
 		M2_Dir2=1;
-		TIM_SetCompare2(TIM3,min(FullSpeed,speed));
+		TIM_SetCompare2(TIM3,min(Limit,Speed));
 	}
-	else if(speed==0)
+	else if(Speed==0)
 	{
 		M2_Dir1=1;
 		M2_Dir2=1;
@@ -106,19 +106,19 @@ void Set_M2_speed(int speed)
 	{
 		M2_Dir1=1;
 		M2_Dir2=0;
-		TIM_SetCompare2(TIM3,min(FullSpeed,-speed));
+		TIM_SetCompare2(TIM3,min(Limit,-Speed));
 	}
 }
 
-void Set_M3_speed(int speed)
+void Set_M3_Speed(int Speed)
 {
-	if(speed>0)
+	if(Speed>0)
 	{
 		M3_Dir1=1;
 		M3_Dir2=0;
-		TIM_SetCompare3(TIM3,min(FullSpeed,speed));
+		TIM_SetCompare3(TIM3,min(FullSpeed,Speed));
 	}
-	else if(speed==0)
+	else if(Speed==0)
 	{
 		M3_Dir1=1;
 		M3_Dir2=1;
@@ -128,19 +128,19 @@ void Set_M3_speed(int speed)
 	{
 		M3_Dir1=0;
 		M3_Dir2=1;
-		TIM_SetCompare3(TIM3,min(FullSpeed,-speed));
+		TIM_SetCompare3(TIM3,min(FullSpeed,-Speed));
 	}
 }
 
-void Set_M4_speed(int speed)
+void Set_Left_Speed(int Speed,int Limit)
 {
-	if(speed>0)
+	if(Speed>0)
 	{
 		M4_Dir1=0;
 		M4_Dir2=1;
-		TIM_SetCompare4(TIM3,min(FullSpeed,speed));
+		TIM_SetCompare4(TIM3,min(Limit,Speed));
 	}
-	else if(speed==0)
+	else if(Speed==0)
 	{
 		M4_Dir1=1;
 		M4_Dir2=1;
@@ -150,6 +150,6 @@ void Set_M4_speed(int speed)
 	{
 		M4_Dir1=1;
 		M4_Dir2=0;
-		TIM_SetCompare4(TIM3,min(FullSpeed,-speed));
+		TIM_SetCompare4(TIM3,min(Limit,-Speed));
 	}
 }
